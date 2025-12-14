@@ -1,9 +1,14 @@
 #include "init.h"
+#include "it_handlers.h"
+volatile uint8_t led = 0;
+volatile uint32_t GlobalTickCount = 0;
+uint8_t  LedMode = 0;
 int main(void)
 {
     RCC_Init();
     GPIO_Init();
-    uint8_t led = 0;
+    EXTI_ITR_Init();
+    SysTick_Init();
     while(1)
     {
     if (led == 1)
@@ -34,7 +39,7 @@ int main(void)
     else if (led == 6)
     {
     SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR1);
-    SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS2);   // пятый  
+    SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS2);   // шестой 
     }   
     }
 }

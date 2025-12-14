@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Tim\AppData\Local\Temp\cc0NlRBg.s 			page 1
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -29,83 +29,255 @@ ARM GAS  C:\Users\Tim\AppData\Local\Temp\cc0NlRBg.s 			page 1
   27              	main:
   28              	.LFB130:
    1:Core/Src/main.c **** #include "init.h"
-   2:Core/Src/main.c **** int main(void)
-   3:Core/Src/main.c **** {
-  29              		.loc 1 3 1 view -0
+   2:Core/Src/main.c **** #include "it_handlers.h"
+   3:Core/Src/main.c **** volatile uint8_t led = 0;
+   4:Core/Src/main.c **** volatile uint32_t GlobalTickCount = 0;
+   5:Core/Src/main.c **** uint8_t  LedMode = 0;
+   6:Core/Src/main.c **** int main(void)
+   7:Core/Src/main.c **** {
+  29              		.loc 1 7 1 view -0
   30              		.cfi_startproc
-  31              		@ args = 0, pretend = 0, frame = 0
-  32              		@ frame_needed = 0, uses_anonymous_args = 0
-  33 0000 08B5     		push	{r3, lr}
-  34              	.LCFI0:
-  35              		.cfi_def_cfa_offset 8
-  36              		.cfi_offset 3, -8
-  37              		.cfi_offset 14, -4
-   4:Core/Src/main.c ****     RCC_Init();
-  38              		.loc 1 4 5 view .LVU1
-  39 0002 FFF7FEFF 		bl	RCC_Init
-  40              	.LVL0:
-   5:Core/Src/main.c ****     GPIO_Init();
-  41              		.loc 1 5 5 view .LVU2
-  42 0006 FFF7FEFF 		bl	GPIO_Init
-  43              	.LVL1:
-   6:Core/Src/main.c ****     uint8_t led = 0;
-  44              		.loc 1 6 5 view .LVU3
-  45              	.L2:
-   7:Core/Src/main.c ****     while(1)
-  46              		.loc 1 7 5 view .LVU4
-   8:Core/Src/main.c ****     {
-   9:Core/Src/main.c ****     if (led == 1)
-  47              		.loc 1 9 5 view .LVU5
-  10:Core/Src/main.c ****     {
-  11:Core/Src/main.c ****     SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR2);
-ARM GAS  C:\Users\Tim\AppData\Local\Temp\cc0NlRBg.s 			page 2
+  31              		@ Volatile: function does not return.
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34 0000 08B5     		push	{r3, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 3, -8
+  38              		.cfi_offset 14, -4
+   8:Core/Src/main.c ****     RCC_Init();
+  39              		.loc 1 8 5 view .LVU1
+  40 0002 FFF7FEFF 		bl	RCC_Init
+  41              	.LVL0:
+   9:Core/Src/main.c ****     GPIO_Init();
+  42              		.loc 1 9 5 view .LVU2
+  43 0006 FFF7FEFF 		bl	GPIO_Init
+  44              	.LVL1:
+  10:Core/Src/main.c ****     EXTI_ITR_Init();
+  45              		.loc 1 10 5 view .LVU3
+  46 000a FFF7FEFF 		bl	EXTI_ITR_Init
+  47              	.LVL2:
+  11:Core/Src/main.c ****     SysTick_Init();
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s 			page 2
 
 
-  12:Core/Src/main.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS0);   // включить первый
-  13:Core/Src/main.c ****     }    
-  14:Core/Src/main.c ****     else if (led == 2)
-  48              		.loc 1 14 10 view .LVU6
+  48              		.loc 1 11 5 view .LVU4
+  49 000e FFF7FEFF 		bl	SysTick_Init
+  50              	.LVL3:
+  51 0012 0AE0     		b	.L2
+  52              	.L10:
+  12:Core/Src/main.c ****     while(1)
+  13:Core/Src/main.c ****     {
+  14:Core/Src/main.c ****     if (led == 1)
   15:Core/Src/main.c ****     {
-  16:Core/Src/main.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR0);
-  17:Core/Src/main.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS7);   // второй
+  16:Core/Src/main.c ****     SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR2);
+  53              		.loc 1 16 5 view .LVU5
+  54 0014 2E4A     		ldr	r2, .L15
+  55 0016 9369     		ldr	r3, [r2, #24]
+  56 0018 43F48023 		orr	r3, r3, #262144
+  57 001c 9361     		str	r3, [r2, #24]
+  17:Core/Src/main.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS0);   // включить первый
+  58              		.loc 1 17 5 view .LVU6
+  59 001e A2F50062 		sub	r2, r2, #2048
+  60 0022 9369     		ldr	r3, [r2, #24]
+  61 0024 43F00103 		orr	r3, r3, #1
+  62 0028 9361     		str	r3, [r2, #24]
+  63              	.L2:
+  12:Core/Src/main.c ****     while(1)
+  64              		.loc 1 12 5 view .LVU7
+  14:Core/Src/main.c ****     {
+  65              		.loc 1 14 5 view .LVU8
+  14:Core/Src/main.c ****     {
+  66              		.loc 1 14 13 is_stmt 0 view .LVU9
+  67 002a 2A4B     		ldr	r3, .L15+4
+  68 002c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  69 002e DBB2     		uxtb	r3, r3
+  14:Core/Src/main.c ****     {
+  70              		.loc 1 14 8 view .LVU10
+  71 0030 012B     		cmp	r3, #1
+  72 0032 EFD0     		beq	.L10
   18:Core/Src/main.c ****     }    
-  19:Core/Src/main.c ****     else if (led == 3)
-  49              		.loc 1 19 10 view .LVU7
+  19:Core/Src/main.c ****     else if (led == 2)
+  73              		.loc 1 19 10 is_stmt 1 view .LVU11
+  74              		.loc 1 19 18 is_stmt 0 view .LVU12
+  75 0034 274B     		ldr	r3, .L15+4
+  76 0036 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  77 0038 DBB2     		uxtb	r3, r3
+  78              		.loc 1 19 13 view .LVU13
+  79 003a 022B     		cmp	r3, #2
+  80 003c 1DD0     		beq	.L11
   20:Core/Src/main.c ****     {
-  21:Core/Src/main.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR7);
-  22:Core/Src/main.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);   // третий
-  23:Core/Src/main.c ****     }
-  24:Core/Src/main.c ****     else if (led == 4)
-  50              		.loc 1 24 10 view .LVU8
+  21:Core/Src/main.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR0);
+  22:Core/Src/main.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS7);   // второй
+  23:Core/Src/main.c ****     }    
+  24:Core/Src/main.c ****     else if (led == 3)
+  81              		.loc 1 24 10 is_stmt 1 view .LVU14
+  82              		.loc 1 24 18 is_stmt 0 view .LVU15
+  83 003e 254B     		ldr	r3, .L15+4
+  84 0040 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  85 0042 DBB2     		uxtb	r3, r3
+  86              		.loc 1 24 13 view .LVU16
+  87 0044 032B     		cmp	r3, #3
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s 			page 3
+
+
+  88 0046 22D0     		beq	.L12
   25:Core/Src/main.c ****     {
-  26:Core/Src/main.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR14);
-  27:Core/Src/main.c ****     SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);   // четвертый   
-  28:Core/Src/main.c ****     }   
-  29:Core/Src/main.c ****     else if (led == 5)
-  51              		.loc 1 29 10 view .LVU9
+  26:Core/Src/main.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR7);
+  27:Core/Src/main.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);   // третий
+  28:Core/Src/main.c ****     }
+  29:Core/Src/main.c ****     else if (led == 4)
+  89              		.loc 1 29 10 is_stmt 1 view .LVU17
+  90              		.loc 1 29 18 is_stmt 0 view .LVU18
+  91 0048 224B     		ldr	r3, .L15+4
+  92 004a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  93 004c DBB2     		uxtb	r3, r3
+  94              		.loc 1 29 13 view .LVU19
+  95 004e 042B     		cmp	r3, #4
+  96 0050 27D0     		beq	.L13
   30:Core/Src/main.c ****     {
-  31:Core/Src/main.c ****     SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR0);
-  32:Core/Src/main.c ****     SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS1);   // пятый  
+  31:Core/Src/main.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BR14);
+  32:Core/Src/main.c ****     SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);   // четвертый   
   33:Core/Src/main.c ****     }   
-  34:Core/Src/main.c ****     else if (led == 6)
-  52              		.loc 1 34 10 view .LVU10
-  53 000a FEE7     		b	.L2
-  54              		.cfi_endproc
-  55              	.LFE130:
-  57              		.text
-  58              	.Letext0:
-  59              		.file 2 "E:/Toolsformc/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_t
-  60              		.file 3 "E:/Toolsformc/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
-  61              		.file 4 "CMSIS/Devices/STM32F4xx/Inc/STM32F429xx/stm32f429xx.h"
-  62              		.file 5 "Core/Inc/init.h"
-ARM GAS  C:\Users\Tim\AppData\Local\Temp\cc0NlRBg.s 			page 3
+  34:Core/Src/main.c ****     else if (led == 5)
+  97              		.loc 1 34 10 is_stmt 1 view .LVU20
+  98              		.loc 1 34 18 is_stmt 0 view .LVU21
+  99 0052 204B     		ldr	r3, .L15+4
+ 100 0054 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 101 0056 DBB2     		uxtb	r3, r3
+ 102              		.loc 1 34 13 view .LVU22
+ 103 0058 052B     		cmp	r3, #5
+ 104 005a 2ED0     		beq	.L14
+  35:Core/Src/main.c ****     {
+  36:Core/Src/main.c ****     SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR0);
+  37:Core/Src/main.c ****     SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS1);   // пятый  
+  38:Core/Src/main.c ****     }   
+  39:Core/Src/main.c ****     else if (led == 6)
+ 105              		.loc 1 39 10 is_stmt 1 view .LVU23
+ 106              		.loc 1 39 18 is_stmt 0 view .LVU24
+ 107 005c 1D4B     		ldr	r3, .L15+4
+ 108 005e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 109 0060 DBB2     		uxtb	r3, r3
+ 110              		.loc 1 39 13 view .LVU25
+ 111 0062 062B     		cmp	r3, #6
+ 112 0064 E1D1     		bne	.L2
+  40:Core/Src/main.c ****     {
+  41:Core/Src/main.c ****     SET_BIT(GPIOD->BSRR, GPIO_BSRR_BR1);
+ 113              		.loc 1 41 5 is_stmt 1 view .LVU26
+ 114 0066 1A4B     		ldr	r3, .L15
+ 115 0068 9A69     		ldr	r2, [r3, #24]
+ 116 006a 42F40032 		orr	r2, r2, #131072
+ 117 006e 9A61     		str	r2, [r3, #24]
+  42:Core/Src/main.c ****     SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS2);   // шестой 
+ 118              		.loc 1 42 5 view .LVU27
+ 119 0070 9A69     		ldr	r2, [r3, #24]
+ 120 0072 42F00402 		orr	r2, r2, #4
+ 121 0076 9A61     		str	r2, [r3, #24]
+ 122 0078 D7E7     		b	.L2
+ 123              	.L11:
+  21:Core/Src/main.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS7);   // второй
+ 124              		.loc 1 21 5 view .LVU28
+ 125 007a 174B     		ldr	r3, .L15+8
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s 			page 4
+
+
+ 126 007c 9A69     		ldr	r2, [r3, #24]
+ 127 007e 42F48032 		orr	r2, r2, #65536
+ 128 0082 9A61     		str	r2, [r3, #24]
+  22:Core/Src/main.c ****     }    
+ 129              		.loc 1 22 5 view .LVU29
+ 130 0084 9A69     		ldr	r2, [r3, #24]
+ 131 0086 42F08002 		orr	r2, r2, #128
+ 132 008a 9A61     		str	r2, [r3, #24]
+ 133 008c CDE7     		b	.L2
+ 134              	.L12:
+  26:Core/Src/main.c ****     SET_BIT(GPIOB->BSRR, GPIO_BSRR_BS14);   // третий
+ 135              		.loc 1 26 5 view .LVU30
+ 136 008e 124B     		ldr	r3, .L15+8
+ 137 0090 9A69     		ldr	r2, [r3, #24]
+ 138 0092 42F40002 		orr	r2, r2, #8388608
+ 139 0096 9A61     		str	r2, [r3, #24]
+  27:Core/Src/main.c ****     }
+ 140              		.loc 1 27 5 view .LVU31
+ 141 0098 9A69     		ldr	r2, [r3, #24]
+ 142 009a 42F48042 		orr	r2, r2, #16384
+ 143 009e 9A61     		str	r2, [r3, #24]
+ 144 00a0 C3E7     		b	.L2
+ 145              	.L13:
+  31:Core/Src/main.c ****     SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS0);   // четвертый   
+ 146              		.loc 1 31 5 view .LVU32
+ 147 00a2 0D4A     		ldr	r2, .L15+8
+ 148 00a4 9369     		ldr	r3, [r2, #24]
+ 149 00a6 43F08043 		orr	r3, r3, #1073741824
+ 150 00aa 9361     		str	r3, [r2, #24]
+  32:Core/Src/main.c ****     }   
+ 151              		.loc 1 32 5 view .LVU33
+ 152 00ac 02F50062 		add	r2, r2, #2048
+ 153 00b0 9369     		ldr	r3, [r2, #24]
+ 154 00b2 43F00103 		orr	r3, r3, #1
+ 155 00b6 9361     		str	r3, [r2, #24]
+ 156 00b8 B7E7     		b	.L2
+ 157              	.L14:
+  36:Core/Src/main.c ****     SET_BIT(GPIOD->BSRR, GPIO_BSRR_BS1);   // пятый  
+ 158              		.loc 1 36 5 view .LVU34
+ 159 00ba 054B     		ldr	r3, .L15
+ 160 00bc 9A69     		ldr	r2, [r3, #24]
+ 161 00be 42F48032 		orr	r2, r2, #65536
+ 162 00c2 9A61     		str	r2, [r3, #24]
+  37:Core/Src/main.c ****     }   
+ 163              		.loc 1 37 5 view .LVU35
+ 164 00c4 9A69     		ldr	r2, [r3, #24]
+ 165 00c6 42F00202 		orr	r2, r2, #2
+ 166 00ca 9A61     		str	r2, [r3, #24]
+ 167 00cc ADE7     		b	.L2
+ 168              	.L16:
+ 169 00ce 00BF     		.align	2
+ 170              	.L15:
+ 171 00d0 000C0240 		.word	1073875968
+ 172 00d4 00000000 		.word	led
+ 173 00d8 00040240 		.word	1073873920
+ 174              		.cfi_endproc
+ 175              	.LFE130:
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s 			page 5
+
+
+ 177              		.global	LedMode
+ 178              		.section	.bss.LedMode,"aw",%nobits
+ 181              	LedMode:
+ 182 0000 00       		.space	1
+ 183              		.global	GlobalTickCount
+ 184              		.section	.bss.GlobalTickCount,"aw",%nobits
+ 185              		.align	2
+ 188              	GlobalTickCount:
+ 189 0000 00000000 		.space	4
+ 190              		.global	led
+ 191              		.section	.bss.led,"aw",%nobits
+ 194              	led:
+ 195 0000 00       		.space	1
+ 196              		.text
+ 197              	.Letext0:
+ 198              		.file 2 "E:/Toolsformc/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_t
+ 199              		.file 3 "E:/Toolsformc/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
+ 200              		.file 4 "CMSIS/Devices/STM32F4xx/Inc/STM32F429xx/stm32f429xx.h"
+ 201              		.file 5 "Core/Inc/it_handlers.h"
+ 202              		.file 6 "Core/Inc/init.h"
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\Tim\AppData\Local\Temp\cc0NlRBg.s:21     .text.main:00000000 $t
-C:\Users\Tim\AppData\Local\Temp\cc0NlRBg.s:27     .text.main:00000000 main
+C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s:21     .text.main:00000000 $t
+C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s:27     .text.main:00000000 main
+C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s:171    .text.main:000000d0 $d
+C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s:194    .bss.led:00000000 led
+C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s:181    .bss.LedMode:00000000 LedMode
+C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s:182    .bss.LedMode:00000000 $d
+C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s:188    .bss.GlobalTickCount:00000000 GlobalTickCount
+C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s:185    .bss.GlobalTickCount:00000000 $d
+C:\Users\Tim\AppData\Local\Temp\ccek1lUM.s:195    .bss.led:00000000 $d
 
 UNDEFINED SYMBOLS
 RCC_Init
 GPIO_Init
+EXTI_ITR_Init
+SysTick_Init

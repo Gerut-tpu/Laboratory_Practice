@@ -65,4 +65,10 @@ void GPIO_Init(void)
     CLEAR_BIT(GPIOD->OTYPER, GPIO_OTYPER_OT2);     // PD2: Push‑Pull [file:21]
     SET_BIT(GPIOD->OSPEEDR, GPIO_OSPEEDER_OSPEEDR2_0); // PD2: medium speed [file:21]
     CLEAR_BIT(GPIOD->PUPDR, GPIO_PUPDR_PUPDR2_0 | GPIO_PUPDR_PUPDR2_1); // PD2: no 
+
+    SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOCEN);
+    CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE13); // 00 = input [file:21]
+
+    // PC13 no pull (на NUCLEO внешняя подтяжка уже есть)
+    CLEAR_BIT(GPIOC->PUPDR, GPIO_PUPDR_PUPD13); // 00 = no pull
 }

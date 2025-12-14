@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s 			page 1
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s 			page 1
   50 0016 13F00C0F 		tst	r3, #12
   51 001a FAD1     		bne	.L2
    7:Core/Src/init.c ****    CLEAR_BIT(RCC->CR, RCC_CR_PLLON);
-ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s 			page 2
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s 			page 2
 
 
   52              		.loc 1 7 4 is_stmt 1 view .LVU7
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s 			page 1
   98              		.loc 1 15 4 is_stmt 1 view .LVU23
   99 0060 274B     		ldr	r3, .L7
  100 0062 1A68     		ldr	r2, [r3]
-ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s 			page 3
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s 			page 3
 
 
  101 0064 22F48022 		bic	r2, r2, #262144
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s 			page 1
  143 00b8 42F00202 		orr	r2, r2, #2
  144 00bc 9A60     		str	r2, [r3, #8]
   28:Core/Src/init.c ****    MODIFY_REG(RCC->CFGR, RCC_CFGR_HPRE, RCC_CFGR_HPRE_DIV1);
-ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s 			page 4
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s 			page 4
 
 
  145              		.loc 1 28 4 view .LVU34
@@ -238,19 +238,19 @@ ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s 			page 1
  193              		.cfi_startproc
  194              		@ args = 0, pretend = 0, frame = 0
  195              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s 			page 5
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s 			page 5
 
 
  196              		@ link register save eliminated.
   37:Core/Src/init.c ****     SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOBEN);    // GPIOB clock enable [file:21]
  197              		.loc 1 37 5 view .LVU42
- 198 0000 354A     		ldr	r2, .L10
+ 198 0000 3C4A     		ldr	r2, .L10
  199 0002 136B     		ldr	r3, [r2, #48]
  200 0004 43F00203 		orr	r3, r3, #2
  201 0008 1363     		str	r3, [r2, #48]
   38:Core/Src/init.c ****     SET_BIT(GPIOB->MODER, GPIO_MODER_MODE0_0);     // PB0: Output mode [file:21]
  202              		.loc 1 38 5 view .LVU43
- 203 000a 344B     		ldr	r3, .L10+4
+ 203 000a 3B4B     		ldr	r3, .L10+4
  204 000c 1968     		ldr	r1, [r3]
  205 000e 41F00101 		orr	r1, r1, #1
  206 0012 1960     		str	r1, [r3]
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s 			page 1
  238 0052 1960     		str	r1, [r3]
   49:Core/Src/init.c ****     CLEAR_BIT(GPIOB->OTYPER, GPIO_OTYPER_OT14);     // PB14: Push‑Pull [file:21]
  239              		.loc 1 49 5 view .LVU52
-ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s 			page 6
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s 			page 6
 
 
  240 0054 5968     		ldr	r1, [r3, #4]
@@ -322,97 +322,120 @@ ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s 			page 1
  254 0072 1363     		str	r3, [r2, #48]
   54:Core/Src/init.c ****     SET_BIT(GPIOD->MODER, GPIO_MODER_MODE0_0);     // PD0: Output mode [file:21]
  255              		.loc 1 54 5 view .LVU56
- 256 0074 1A4B     		ldr	r3, .L10+8
- 257 0076 1A68     		ldr	r2, [r3]
- 258 0078 42F00102 		orr	r2, r2, #1
- 259 007c 1A60     		str	r2, [r3]
+ 256 0074 214B     		ldr	r3, .L10+8
+ 257 0076 1968     		ldr	r1, [r3]
+ 258 0078 41F00101 		orr	r1, r1, #1
+ 259 007c 1960     		str	r1, [r3]
   55:Core/Src/init.c ****     CLEAR_BIT(GPIOD->OTYPER, GPIO_OTYPER_OT0);     // PD0: Push‑Pull [file:21]
  260              		.loc 1 55 5 view .LVU57
- 261 007e 5A68     		ldr	r2, [r3, #4]
- 262 0080 22F00102 		bic	r2, r2, #1
- 263 0084 5A60     		str	r2, [r3, #4]
+ 261 007e 5968     		ldr	r1, [r3, #4]
+ 262 0080 21F00101 		bic	r1, r1, #1
+ 263 0084 5960     		str	r1, [r3, #4]
   56:Core/Src/init.c ****     SET_BIT(GPIOD->OSPEEDR, GPIO_OSPEEDER_OSPEEDR0_0); // PD0: medium speed [file:21]
  264              		.loc 1 56 5 view .LVU58
- 265 0086 9A68     		ldr	r2, [r3, #8]
- 266 0088 42F00102 		orr	r2, r2, #1
- 267 008c 9A60     		str	r2, [r3, #8]
+ 265 0086 9968     		ldr	r1, [r3, #8]
+ 266 0088 41F00101 		orr	r1, r1, #1
+ 267 008c 9960     		str	r1, [r3, #8]
   57:Core/Src/init.c ****     CLEAR_BIT(GPIOD->PUPDR, GPIO_PUPDR_PUPDR0_0 | GPIO_PUPDR_PUPDR0_1); // PD0: no 
  268              		.loc 1 57 5 view .LVU59
- 269 008e DA68     		ldr	r2, [r3, #12]
- 270 0090 22F00302 		bic	r2, r2, #3
- 271 0094 DA60     		str	r2, [r3, #12]
+ 269 008e D968     		ldr	r1, [r3, #12]
+ 270 0090 21F00301 		bic	r1, r1, #3
+ 271 0094 D960     		str	r1, [r3, #12]
   58:Core/Src/init.c **** 
   59:Core/Src/init.c ****     SET_BIT(GPIOD->MODER, GPIO_MODER_MODE1_0);     // PD1: Output mode [file:21]
  272              		.loc 1 59 5 view .LVU60
- 273 0096 1A68     		ldr	r2, [r3]
- 274 0098 42F00402 		orr	r2, r2, #4
- 275 009c 1A60     		str	r2, [r3]
+ 273 0096 1968     		ldr	r1, [r3]
+ 274 0098 41F00401 		orr	r1, r1, #4
+ 275 009c 1960     		str	r1, [r3]
   60:Core/Src/init.c ****     CLEAR_BIT(GPIOD->OTYPER, GPIO_OTYPER_OT1);     // PD1: Push‑Pull [file:21]
  276              		.loc 1 60 5 view .LVU61
- 277 009e 5A68     		ldr	r2, [r3, #4]
- 278 00a0 22F00202 		bic	r2, r2, #2
- 279 00a4 5A60     		str	r2, [r3, #4]
+ 277 009e 5968     		ldr	r1, [r3, #4]
+ 278 00a0 21F00201 		bic	r1, r1, #2
+ 279 00a4 5960     		str	r1, [r3, #4]
   61:Core/Src/init.c ****     SET_BIT(GPIOD->OSPEEDR, GPIO_OSPEEDER_OSPEEDR1_0); // PD1: medium speed [file:21]
  280              		.loc 1 61 5 view .LVU62
- 281 00a6 9A68     		ldr	r2, [r3, #8]
- 282 00a8 42F00402 		orr	r2, r2, #4
- 283 00ac 9A60     		str	r2, [r3, #8]
+ 281 00a6 9968     		ldr	r1, [r3, #8]
+ 282 00a8 41F00401 		orr	r1, r1, #4
+ 283 00ac 9960     		str	r1, [r3, #8]
   62:Core/Src/init.c ****     CLEAR_BIT(GPIOD->PUPDR, GPIO_PUPDR_PUPDR1_0 | GPIO_PUPDR_PUPDR1_1); // PD1: no 
-ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s 			page 7
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s 			page 7
 
 
  284              		.loc 1 62 5 view .LVU63
- 285 00ae DA68     		ldr	r2, [r3, #12]
- 286 00b0 22F00C02 		bic	r2, r2, #12
- 287 00b4 DA60     		str	r2, [r3, #12]
+ 285 00ae D968     		ldr	r1, [r3, #12]
+ 286 00b0 21F00C01 		bic	r1, r1, #12
+ 287 00b4 D960     		str	r1, [r3, #12]
   63:Core/Src/init.c **** 
   64:Core/Src/init.c ****     SET_BIT(GPIOD->MODER, GPIO_MODER_MODE2_0);     // PD2: Output mode [file:21]
  288              		.loc 1 64 5 view .LVU64
- 289 00b6 1A68     		ldr	r2, [r3]
- 290 00b8 42F01002 		orr	r2, r2, #16
- 291 00bc 1A60     		str	r2, [r3]
+ 289 00b6 1968     		ldr	r1, [r3]
+ 290 00b8 41F01001 		orr	r1, r1, #16
+ 291 00bc 1960     		str	r1, [r3]
   65:Core/Src/init.c ****     CLEAR_BIT(GPIOD->OTYPER, GPIO_OTYPER_OT2);     // PD2: Push‑Pull [file:21]
  292              		.loc 1 65 5 view .LVU65
- 293 00be 5A68     		ldr	r2, [r3, #4]
- 294 00c0 22F00402 		bic	r2, r2, #4
- 295 00c4 5A60     		str	r2, [r3, #4]
+ 293 00be 5968     		ldr	r1, [r3, #4]
+ 294 00c0 21F00401 		bic	r1, r1, #4
+ 295 00c4 5960     		str	r1, [r3, #4]
   66:Core/Src/init.c ****     SET_BIT(GPIOD->OSPEEDR, GPIO_OSPEEDER_OSPEEDR2_0); // PD2: medium speed [file:21]
  296              		.loc 1 66 5 view .LVU66
- 297 00c6 9A68     		ldr	r2, [r3, #8]
- 298 00c8 42F01002 		orr	r2, r2, #16
- 299 00cc 9A60     		str	r2, [r3, #8]
+ 297 00c6 9968     		ldr	r1, [r3, #8]
+ 298 00c8 41F01001 		orr	r1, r1, #16
+ 299 00cc 9960     		str	r1, [r3, #8]
   67:Core/Src/init.c ****     CLEAR_BIT(GPIOD->PUPDR, GPIO_PUPDR_PUPDR2_0 | GPIO_PUPDR_PUPDR2_1); // PD2: no 
  300              		.loc 1 67 5 view .LVU67
- 301 00ce DA68     		ldr	r2, [r3, #12]
- 302 00d0 22F03002 		bic	r2, r2, #48
- 303 00d4 DA60     		str	r2, [r3, #12]
-  68:Core/Src/init.c **** }
- 304              		.loc 1 68 1 is_stmt 0 view .LVU68
- 305 00d6 7047     		bx	lr
- 306              	.L11:
- 307              		.align	2
- 308              	.L10:
- 309 00d8 00380240 		.word	1073887232
- 310 00dc 00040240 		.word	1073873920
- 311 00e0 000C0240 		.word	1073875968
- 312              		.cfi_endproc
- 313              	.LFE131:
- 315              		.text
- 316              	.Letext0:
- 317              		.file 2 "E:/Toolsformc/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_t
- 318              		.file 3 "E:/Toolsformc/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
- 319              		.file 4 "CMSIS/Devices/STM32F4xx/Inc/STM32F429xx/stm32f429xx.h"
- 320              		.file 5 "Core/Inc/../../CMSIS/Devices/STM32F4xx/Inc/stm32f4xx.h"
-ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s 			page 8
+ 301 00ce D968     		ldr	r1, [r3, #12]
+ 302 00d0 21F03001 		bic	r1, r1, #48
+ 303 00d4 D960     		str	r1, [r3, #12]
+  68:Core/Src/init.c **** 
+  69:Core/Src/init.c ****     SET_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOCEN);
+ 304              		.loc 1 69 5 view .LVU68
+ 305 00d6 136B     		ldr	r3, [r2, #48]
+ 306 00d8 43F00403 		orr	r3, r3, #4
+ 307 00dc 1363     		str	r3, [r2, #48]
+  70:Core/Src/init.c ****     CLEAR_BIT(GPIOC->MODER, GPIO_MODER_MODE13); // 00 = input [file:21]
+ 308              		.loc 1 70 5 view .LVU69
+ 309 00de 084B     		ldr	r3, .L10+12
+ 310 00e0 1A68     		ldr	r2, [r3]
+ 311 00e2 22F04062 		bic	r2, r2, #201326592
+ 312 00e6 1A60     		str	r2, [r3]
+  71:Core/Src/init.c **** 
+  72:Core/Src/init.c ****     // PC13 no pull (на NUCLEO внешняя подтяжка уже есть)
+  73:Core/Src/init.c ****     CLEAR_BIT(GPIOC->PUPDR, GPIO_PUPDR_PUPD13); // 00 = no pull
+ 313              		.loc 1 73 5 view .LVU70
+ 314 00e8 DA68     		ldr	r2, [r3, #12]
+ 315 00ea 22F04062 		bic	r2, r2, #201326592
+ 316 00ee DA60     		str	r2, [r3, #12]
+  74:Core/Src/init.c **** }...
+ 317              		.loc 1 74 1 is_stmt 0 view .LVU71
+ 318 00f0 7047     		bx	lr
+ 319              	.L11:
+ 320 00f2 00BF     		.align	2
+ 321              	.L10:
+ 322 00f4 00380240 		.word	1073887232
+ 323 00f8 00040240 		.word	1073873920
+ 324 00fc 000C0240 		.word	1073875968
+ 325 0100 00080240 		.word	1073874944
+ 326              		.cfi_endproc
+ 327              	.LFE131:
+ 329              		.text
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s 			page 8
+
+
+ 330              	.Letext0:
+ 331              		.file 2 "E:/Toolsformc/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/machine/_default_t
+ 332              		.file 3 "E:/Toolsformc/xpack-arm-none-eabi-gcc-13.2.1-1.1/arm-none-eabi/include/sys/_stdint.h"
+ 333              		.file 4 "CMSIS/Devices/STM32F4xx/Inc/STM32F429xx/stm32f429xx.h"
+ 334              		.file 5 "Core/Inc/../../CMSIS/Devices/STM32F4xx/Inc/stm32f4xx.h"
+ARM GAS  C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 init.c
-C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s:21     .text.RCC_Init:00000000 $t
-C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s:27     .text.RCC_Init:00000000 RCC_Init
-C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s:178    .text.RCC_Init:00000100 $d
-C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s:184    .text.GPIO_Init:00000000 $t
-C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s:190    .text.GPIO_Init:00000000 GPIO_Init
-C:\Users\Tim\AppData\Local\Temp\ccWdfPmm.s:309    .text.GPIO_Init:000000d8 $d
+C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s:21     .text.RCC_Init:00000000 $t
+C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s:27     .text.RCC_Init:00000000 RCC_Init
+C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s:178    .text.RCC_Init:00000100 $d
+C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s:184    .text.GPIO_Init:00000000 $t
+C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s:190    .text.GPIO_Init:00000000 GPIO_Init
+C:\Users\Tim\AppData\Local\Temp\ccKsXUeJ.s:322    .text.GPIO_Init:000000f4 $d
 
 NO UNDEFINED SYMBOLS
