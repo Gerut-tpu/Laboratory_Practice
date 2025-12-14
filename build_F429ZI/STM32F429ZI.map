@@ -137,6 +137,14 @@ Discarded input sections
  .text          0x00000000        0x0 build_F429ZI/init.o
  .data          0x00000000        0x0 build_F429ZI/init.o
  .bss           0x00000000        0x0 build_F429ZI/init.o
+ .text          0x00000000        0x0 build_F429ZI/it_handlers.o
+ .data          0x00000000        0x0 build_F429ZI/it_handlers.o
+ .bss           0x00000000        0x0 build_F429ZI/it_handlers.o
+ .debug_line    0x00000000        0x0 build_F429ZI/it_handlers.o
+ .debug_str     0x00000000       0xce build_F429ZI/it_handlers.o
+ .comment       0x00000000       0x3a build_F429ZI/it_handlers.o
+ .ARM.attributes
+                0x00000000       0x34 build_F429ZI/it_handlers.o
  .text          0x00000000       0x14 build_F429ZI/startup_stm32f429xx.o
  .data          0x00000000        0x0 build_F429ZI/startup_stm32f429xx.o
  .bss           0x00000000        0x0 build_F429ZI/startup_stm32f429xx.o
@@ -427,6 +435,7 @@ LOAD build_F429ZI/syscalls.o
 LOAD build_F429ZI/sysmem.o
 LOAD build_F429ZI/main.o
 LOAD build_F429ZI/init.o
+LOAD build_F429ZI/it_handlers.o
 LOAD build_F429ZI/startup_stm32f429xx.o
 LOAD E:/Toolsformc/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
 LOAD E:/Toolsformc/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
@@ -728,17 +737,17 @@ LOAD E:/Toolsformc/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-ea
  .comment       0x00000039       0x3a build_F429ZI/init.o
  .comment       0x00000039       0x3a E:/Toolsformc/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
 
-.debug_info     0x00000000      0xbce
+.debug_info     0x00000000      0xbf3
  .debug_info    0x00000000      0x5ce build_F429ZI/system_stm32f4xx.o
- .debug_info    0x000005ce      0x18e build_F429ZI/main.o
- .debug_info    0x0000075c      0x442 build_F429ZI/init.o
- .debug_info    0x00000b9e       0x30 build_F429ZI/startup_stm32f429xx.o
+ .debug_info    0x000005ce      0x1b3 build_F429ZI/main.o
+ .debug_info    0x00000781      0x442 build_F429ZI/init.o
+ .debug_info    0x00000bc3       0x30 build_F429ZI/startup_stm32f429xx.o
 
-.debug_abbrev   0x00000000      0x2d9
+.debug_abbrev   0x00000000      0x2ea
  .debug_abbrev  0x00000000      0x11b build_F429ZI/system_stm32f4xx.o
- .debug_abbrev  0x0000011b       0xce build_F429ZI/main.o
- .debug_abbrev  0x000001e9       0xd3 build_F429ZI/init.o
- .debug_abbrev  0x000002bc       0x1d build_F429ZI/startup_stm32f429xx.o
+ .debug_abbrev  0x0000011b       0xdf build_F429ZI/main.o
+ .debug_abbrev  0x000001fa       0xd3 build_F429ZI/init.o
+ .debug_abbrev  0x000002cd       0x1d build_F429ZI/startup_stm32f429xx.o
 
 .debug_loc      0x00000000      0x1a1
  .debug_loc     0x00000000      0x181 build_F429ZI/system_stm32f4xx.o
@@ -760,16 +769,16 @@ LOAD E:/Toolsformc/xpack-arm-none-eabi-gcc-13.2.1-1.1/bin/../lib/gcc/arm-none-ea
  .debug_ranges  0x00000028       0x18 build_F429ZI/init.o
  .debug_ranges  0x00000040       0x20 build_F429ZI/startup_stm32f429xx.o
 
-.debug_line     0x00000000      0x68f
+.debug_line     0x00000000      0x690
  .debug_line    0x00000000      0x27e build_F429ZI/system_stm32f4xx.o
- .debug_line    0x0000027e      0x15c build_F429ZI/main.o
- .debug_line    0x000003da      0x22b build_F429ZI/init.o
- .debug_line    0x00000605       0x8a build_F429ZI/startup_stm32f429xx.o
+ .debug_line    0x0000027e      0x15d build_F429ZI/main.o
+ .debug_line    0x000003db      0x22b build_F429ZI/init.o
+ .debug_line    0x00000606       0x8a build_F429ZI/startup_stm32f429xx.o
 
 .debug_str      0x00000000      0x3ed
  .debug_str     0x00000000      0x3ed build_F429ZI/system_stm32f4xx.o
                                 0x35b (size before relaxing)
- .debug_str     0x000003ed      0x1a9 build_F429ZI/main.o
+ .debug_str     0x000003ed      0x1bb build_F429ZI/main.o
  .debug_str     0x000003ed      0x2e1 build_F429ZI/init.o
  .debug_str     0x000003ed       0x65 build_F429ZI/startup_stm32f429xx.o
 
