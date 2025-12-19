@@ -4,5 +4,3 @@
 #include "../../CMSIS/Devices/STM32F4xx/Inc/STM32F429xx/stm32f429xx.h"
 void RCC_Init(void); //Функия настройки тактирования 
 void GPIO_Init(void); //Функция настройки портов GPIO
-void LED_Blink_03Hz_Update(void);
-void LED_ToggleMode(void);
